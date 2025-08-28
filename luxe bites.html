@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luxe Bites</title>
+
+  <!-- Tailwind + Lucide + Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --tan:#B68D40; --cream:#F4EBD0; --charcoal:#122620; --gold:#D4AD60;
+    }
+    body{ font-family:'Poppins',sans-serif; background-color:var(--charcoal); color:var(--charcoal); }
+    h1,h2,h3{ font-family:'Playfair Display',serif; }
+    .nav-link::after{ content:''; display:block; width:0; height:2px; background:var(--gold); transition:width .25s; }
+    .nav-link:hover::after{ width:100%; }
+
+   @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+    .cookie-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .nav-link::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #122620;
+      transition: width .3s;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .hero-pattern {
+      background-image: radial-gradient(circle, rgba(251, 191, 36, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+    } 
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="bg-[#122620] text-[#F4EBD0] p-6 flex justify-between items-center fixed top-0 left-0 w-full z-50 shadow-lg">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+      <i data-lucide="cookie" class="w-8 h-8 text-[#D4AD60]"></i>
+      <h1 class="text-2xl font-bold">
+        Luxe<span class="text-[#D4AD60]">Bites</span>
+      </h1>
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <button id="menuBtn" class="sm:hidden p-2 rounded-md hover:bg-white/10" aria-label="Abrir menú">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Menú desktop -->
+  <!-- Menú desktop -->
+<nav class="hidden sm:flex items-center gap-8">
+  <a href="#" id="link-inicio" class="nav-link hover:text-[var(--gold)]">Inicio</a>
+  <a href="#" class="nav-link hover:text-[var(--gold)] menu-link">Productos</a>
+  <a href="#" class="nav-link hover:text-[var(--gold)] menu-link">Nosotros</a>
+  <a href="#" class="nav-link hover:text-[var(--gold)] menu-link">Contacto</a>
+  <a href="#" class="nav-link hover:text-[var(--gold)] menu-link">Recomendaciones</a>
+</nav>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="grid md:grid-cols-2 items-stretch mt-20 min-h-[86vh]">
+    <div class="bg-cover bg-center" style="background-image:url('https://i.pinimg.com/1200x/37/43/84/374384b01593803d1cc397fdbafb5d08.jpg');"></div>
+    <div class="flex flex-col justify-center p-10 bg-[var(--charcoal)] text-[var(--cream)]">
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight">Let's Find<br/>Your Dream Cookie</h2>
+      <p class="mt-4 text-[var(--cream)]/80">
+        El lujo y el sabor se encuentran en cada mordida. Galletas premium hechas con pasión.
+      </p>
+      <button class="mt-6 w-fit px-5 py-3 rounded-lg font-semibold bg-[var(--gold)] text-[var(--charcoal)] hover:bg-[var(--tan)] transition">
+        Descubrir más
+      </button>
+    </div>
+  </section>
+
+  <!-- DESTACADO -->
+  <section class="py-3 bg-[var(--cream)]">
+    <div class="max-w-7xl mx-auto px-10 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h3 class="text-3xl md:text-4xl font-bold">Descubre el <span class="text-[var(--tan)]">arte</span> de nuestras galletas</h3>
+        <p class="mt-4 text-[var(--charcoal)]/80">
+          Hechas a mano con ingredientes naturales y mucho amor. Cada mordisco es una experiencia única.
+        </p>
+        <div class="mt-6 flex gap-4">
+          <button class="px-6 py-3 rounded-full text-white bg-[var(--tan)] hover:bg-[var(--gold)] transition shadow">
+            Ver productos
+          </button>
+          <button class="px-6 py-3 rounded-full border border-[var(--tan)] text-[var(--tan)] hover:bg-white transition">
+            Conócenos
+          </button>
+        </div>
+      </div>
+
+      <div class="md:w-1/1.5 flex justify-center">
+        <div class="relative w-64 h-80 md:w-80 md:h-80 float-animation">
+          <img src="https://i.pinimg.com/736x/c3/d3/a8/c3d3a86c75274603cffd4a260100035b.jpg" 
+               alt="Galletas artesanales" 
+               class="w-full h-full object-cover rounded-full shadow-xl border-8 border-white">
+          <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg">
+            <i data-lucide="award" class="w-9 h-9 text-yellow-600"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center p-6 rounded-xl bg-amber-50 hover:bg-amber-100 transition">
+        <div class="mx-auto mb-4 w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center">
+          <i data-lucide="heart" class="w-8 h-8"></i>
+        </div>
+        <h4 class="text-xl font-bold mb-2">Hecho con Amor</h4>
+        <p class="text-amber-800">Cada galleta es elaborada artesanalmente con dedicación y cariño.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl bg-amber-50 hover:bg-amber-100 transition">
+        <div class="mx-auto mb-4 w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center">
+          <i data-lucide="leaf" class="w-8 h-8"></i>
+        </div>
+        <h4 class="text-xl font-bold mb-2">Ingredientes Naturales</h4>
+        <p class="text-amber-800">Solo ingredientes orgánicos y naturales para un sabor superior.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl bg-amber-50 hover:bg-amber-100 transition">
+        <div class="mx-auto mb-4 w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center">
+          <i data-lucide="star" class="w-8 h-8"></i>
+        </div>
+        <h4 class="text-xl font-bold mb-2">Dedicación</h4>
+        <p class="text-amber-800">Cada galleta cuenta una historia diferente.</p>
+      </div>
+    </div>
+  </section>
+  <!-- CARRUSEL -->
+<section class="py-16 bg-[var(--cream)]">
+  <div class="max-w-5xl mx-auto relative overflow-hidden rounded-2xl shadow-lg">
+    
+    <!-- Contenedor de imágenes -->
+    <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+      <!-- Reemplaza "IMG1.jpg" por tu imagen -->
+      <img src="IMG1.jpg" class="w-full object-cover flex-shrink-0" alt="Imagen 1">
+      <!-- Reemplaza "IMG2.jpg" por tu imagen -->
+      <img src="IMG2.jpg" class="w-full object-cover flex-shrink-0" alt="Imagen 2">
+      <!-- Reemplaza "IMG3.jpg" por tu imagen -->
+      <img src="IMG3.jpg" class="w-full object-cover flex-shrink-0" alt="Imagen 3">
+    </div>
+
+    <!-- Botones -->
+    <button id="prev" class="absolute top-1/2 -left-3 transform -translate-y-1/2 bg-[var(--charcoal)] text-[var(--cream)] p-3 rounded-full hover:bg-[var(--tan)] transition">
+      ‹
+    </button>
+    <button id="next" class="absolute top-1/2 -right-3 transform -translate-y-1/2 bg-[var(--charcoal)] text-[var(--cream)] p-3 rounded-full hover:bg-[var(--tan)] transition">
+      ›
+    </button>
+  </div>
+</section>
+
+<!-- COOKIE CONSENT -->
+<div
+  id="cookie-card"
+  class="cookie-card [--shadow:rgba(60,64,67,0.3)_0_1px_2px_0,rgba(60,64,67,0.15)_0_2px_6px_9px] 
+         w-4/5 max-w-3xl h-auto rounded-3xl bg-[#F4EBD0] [box-shadow:var(--shadow)] mx-auto mt-10 relative text-black p-6"
+>
+  <!-- Galleta centrada -->
+  <div class="flex justify-center -mt-8 mb-4">
+    <img src="https://cdn-icons-png.flaticon.com/512/1047/1047711.png" alt="Cookie" class="w-12 h-12"/>
+  </div>
+
+  <!-- Texto -->
+  <h5 class="text-sm font-semibold mb-2 text-left mr-auto">
+    Your privacy is important to us
+  </h5>
+  <p class="w-full mb-4 text-sm text-justify">
+    Si presiona aceptar, le mandaremos una encuesta personal para medir y mejorar nuestras galletas...
+    <br />
+    For more information see our
+    <a class="mb-2 text-sm cursor-pointer font-semibold transition-colors hover:text-[#D4AD60] underline underline-offset-2">
+      Privacy Policy
+    </a>
+  </p>
+
+  <!-- Botones -->
+  <button class="mb-2 text-sm mr-auto cursor-pointer font-semibold transition-colors hover:text-[#D4AD60] underline underline-offset-2">
+    More Options
+  </button>
+  <button
+    id="accept-btn"
+    class="absolute font-semibold right-6 bottom-6 cursor-pointer py-2 px-8 w-max break-keep text-sm rounded-lg transition-colors text-[#122620] hover:text-[#F4EBD0] bg-[#ddad81] hover:bg-[#634647]"
+    type="button"
+  >
+    Accept
+  </button>
+</div>
+
+<!-- FORMULARIO (OCULTO POR DEFECTO) -->
+<section id="advice-form" class="hidden py-16 bg-[#122620]">
+  <div class="max-w-3xl mx-auto px-6 bg-[#F4EBD0] shadow-xl rounded-2xl p-10 text-center">
+    <h3 class="text-2xl md:text-3xl font-bold text-[#122620]">
+      ¿Qué nos podrías aconsejar para que esto crezca?
+    </h3>
+    <p class="mt-3 text-[#122620]/80">
+      Tu opinión es muy importante para seguir mejorando nuestras galletas 🍪
+    </p>
+
+    <!-- Formulario que manda a WhatsApp -->
+    <form id="whatsapp-form" class="mt-6 flex flex-col gap-4">
+      <textarea 
+        id="consejo"
+        name="consejo" 
+        rows="4" 
+        placeholder="Escribe aquí tu consejo o idea..."
+        class="w-full px-4 py-3 rounded-lg border border-[#ddad81] focus:outline-none focus:ring-2 focus:ring-[#634647] text-[#122620]"
+        required></textarea>
+
+      <button 
+        type="submit"
+        class="self-center mt-4 px-6 py-3 rounded-full font-semibold text-white bg-[#ddad81] hover:bg-[#634647] transition shadow">
+        Enviar consejo
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+    
+  // Evitar que los demás enlaces suban al inicio
+  document.querySelectorAll('.menu-link').forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault(); // evita que suba al inicio
+      console.log("Clic en: " + this.textContent); // puedes poner otra acción aquí
+    });
+  });
+
+  // Hacer scroll al inicio SOLO con el enlace "Inicio"
+  document.getElementById('link-inicio').addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+
+  <!-- Scripts -->
+  <script>
+    
+    // Enviar mensaje a WhatsApp
+document.getElementById("whatsapp-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  let consejo = document.getElementById("consejo").value;
+  let mensaje = encodeURIComponent("Hola, este es mi consejo: " + consejo);
+  let telefono = "573153721575"; // en formato internacional sin +
+
+  let url = "https://wa.me/" + telefono + "?text=" + mensaje;
+  window.open(url, "_blank");
+
+  // limpiar formulario
+  this.reset();
+});
+
+    document.getElementById("accept-btn").addEventListener("click", function () {
+      // Ocultar tarjeta de cookies
+      document.getElementById("cookie-card").style.display = "none";
+      // Mostrar formulario
+      document.getElementById("advice-form").classList.remove("hidden");
+    });
+
+   
+    
+    lucide.createIcons();
+    const btn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
